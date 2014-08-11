@@ -11,3 +11,17 @@ var arrangement = [[25, 60, 95, 30],
 ];
 var len = arrangement.length;
 var targ = 555;
+
+//Returns the length of an object
+function length(obj) {
+	var res = 0;
+	for (var key in obj) {
+		res ++;
+	}
+	return res;
+}
+
+function print(txt) {//
+	console.log(txt);
+}
+
