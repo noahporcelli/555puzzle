@@ -32,7 +32,6 @@ function print(txt) {
 
 //Returns whether or not a configuration works, given the (global) arrangement of the numbers
 function configWorks(config) {
-	//This function needs to be changed so it takes arrangement
 	var sums = {};
 	for (var i = 0; i < width; i++) {
 		sums[i] = 0;
@@ -60,10 +59,8 @@ function configWorks(config) {
 	return 1;
 }
 
-//Iterator that generates next configuration
-// var __generateNextConfig_iteratorCount = 0;
-function generateNextConfig(iter) {
-	//This funciton needs to be changed so that it takes the iterator as an argument
+//Iterator that generatesconfiguration
+function generateConfig(iter) {
 	var len = arrangement.length;
 	var numConfigs = Math.pow(4, len - 1);
 	if (iter >= numConfigs) {
@@ -86,9 +83,8 @@ function generateNextConfig(iter) {
 
 //Solves the 555 thing
 function doStuff() {
-	//This function needs to be changed?
 	var iter = 0;
-	var j = generateNextConfig(iter);
+	var j = generateConfig(iter);
 	var numSolutions = 0;
 	while (j != 0) {
 		if (configWorks(j)) {
@@ -96,7 +92,8 @@ function doStuff() {
 			numSolutions++;
 		}
 		iter++;
-		j = generateNextConfig(iter);
+		j = generateConfig(iter);
 	}
 	print(numSolutions);
 }
+
