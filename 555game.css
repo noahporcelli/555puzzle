@@ -1,0 +1,269 @@
+body {
+  width: 100%;
+  font-family: arial;
+}
+.btn-warning {
+  background-color: #d88e0c;
+  border-color: #d88e0c;
+}
+button.btn {
+  font-weight: bold;
+}
+p {
+  text-align: center;
+}
+#all {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.title_bar {
+  background-color: #28518f;
+  height: 160px;
+  position: relative;
+}
+.body {
+  background-image: url('bg.png');
+  position: relative;
+}
+.left_title_bit {
+  width: 600px;
+  position: absolute;
+  color: white;
+  left: 75px;
+}
+.left_title_bit .main_title {
+  float: left;
+  font-size: 40px;
+  margin-top: 0.6em;
+}
+.left_title_bit .secondary_title {
+  float: left;
+  font-size: 20px;
+  position: relative;
+  bottom: 45px;
+}
+.right_title_bit {
+  width: 260px;
+  position: absolute;
+  right: 90px;
+  color: white;
+}
+.right_title_bit .timer_container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.right_title_bit #timer {
+  font-size: 34px;
+  position: relative;
+  top: 7px;
+  left: 10px;
+}
+.right_title_bit .top_time {
+  font-size: 14px;
+  text-align: left;
+}
+.right_title_bit button.btn {
+  padding: 10px 15px;
+}
+.opposite_score {
+  margin: 0 auto;
+  padding-top: 23px;
+  width: 100px;
+}
+.opposite_score p {
+  color: white;
+}
+.score {
+  width: 160px;
+  position: absolute;
+}
+.score p {
+  color: white;
+}
+.opposite_score p,
+.left_score p,
+.right_score p {
+  font-size: 35px;
+}
+.right_score {
+  right: 120px;
+  top: 430px;
+}
+.right_score p {
+  bottom: 35px;
+  float: left;
+}
+.left_score {
+  left: 120px;
+  top: 430px;
+}
+.left_score p {
+  bottom: 35px;
+  float: right;
+}
+.rotate_right_icon,
+.rotate_left_icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #28518f;
+}
+.rotate_right_icon:hover,
+.rotate_left_icon:hover {
+  background-color: white;
+  color: orange;
+  cursor: pointer;
+}
+.rotate_right_icon:hover .left_arrow,
+.rotate_left_icon:hover .left_arrow {
+  background-image: url('arrow-ol.png') !important;
+}
+.rotate_right_icon:hover .right_arrow,
+.rotate_left_icon:hover .right_arrow {
+  background-image: url('arrow-or.png') !important;
+}
+.rotate_right_icon div,
+.rotate_left_icon div {
+  width: 12px;
+  height: 20px;
+  position: relative;
+}
+.rotate_right_icon .left_arrow,
+.rotate_left_icon .left_arrow {
+  background-image: url('arrow-l.png');
+  left: 18px;
+  top: 15px;
+}
+.rotate_right_icon .right_arrow,
+.rotate_left_icon .right_arrow {
+  background-image: url('arrow-r.png');
+  left: 21px;
+  top: 15px;
+}
+.rotate_right_icon {
+  float: right;
+}
+.rotate_left_icon {
+  float: left;
+}
+.rotate_right_icon span {
+  position: relative;
+  top: 18px;
+  left: 20px;
+}
+.rotate_left_icon span {
+  position: relative;
+  top: 18px;
+  left: 19px;
+}
+.left_score p,
+.right_score p {
+  position: relative;
+}
+#puzzle {
+  width: 360px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.top {
+  background-image: url('top.png');
+  width: 39px;
+  height: 16px;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}
+.puzzle_row {
+  width: 360px;
+  height: 60px;
+  margin-top: 6px;
+  z-index: 2;
+}
+.row_center_num {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 66px;
+  float: left;
+  z-index: 2;
+  position: relative;
+  font-size: 45px;
+}
+.row_center_num span {
+  position: relative;
+  left: 25px;
+  top: 5px;
+}
+.rotate_row_left_icon,
+.rotate_row_right_icon {
+  font-size: 30px;
+  color: white;
+  float: left;
+}
+.rotate_row_left_icon:hover,
+.rotate_row_right_icon:hover {
+  color: orange;
+  cursor: pointer;
+}
+.rotate_row_left_icon {
+  margin-left: 20px;
+}
+.row_left_num {
+  margin-left: 20px;
+}
+.row_center_num {
+  margin-left: 27px;
+}
+.row_right_num {
+  margin-left: 20px;
+}
+.rotate_row_right_icon {
+  margin-left: 20px;
+}
+.rotate_row_left_icon,
+.rotate_row_right_icon,
+.row_right_num,
+.row_left_num {
+  position: relative;
+  top: 15px;
+}
+.row_right_num,
+.row_left_num {
+  color: white;
+  opacity: 0.5;
+  font-size: 30px;
+  float: left;
+}
+.puzzle_base {
+  background-image: url('base.png');
+  width: 360px;
+  height: 71px;
+  position: relative;
+  bottom: 21px;
+  z-index: 1;
+}
+.puzzle_base p {
+  margin: 0 auto;
+  padding-top: 30px;
+  font-size: 30px;
+}
+.footer {
+  width: 100%;
+  height: 113px;
+  background-image: url('table.png');
+  position: relative;
+  bottom: 82px;
+}
+.footer .scores_btn {
+  position: absolute;
+  left: 13%;
+  top: 35px;
+  padding: 10px 20px;
+}
+.footer .how_btn {
+  position: absolute;
+  right: 13%;
+  top: 35px;
+  padding: 10px 20px;
+}

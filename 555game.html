@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>555 Puzzle</title>
+		<link rel="stylesheet" href="bootstrap.css/css/bootstrap.css" />
+		<link rel="stylesheet" href="555game.css" />
+		<script type="text/javascript" src="555game.js"></script>
+	</head>
+
+	<body onload="do_setups()">
+		<div id="all">
+			<div class="title_bar">
+				<div class="left_title_bit">
+					<p class="main_title">Five Hundred and Fifty Five</p>
+					<p class="secondary_title">Make all 4 sides add up to 555</p>
+				</div>
+				<div class="right_title_bit">
+					<div class="timer_container">
+						<button class="btn btn-warning">Start puzzle</button>
+						<span id="timer" class="timer">00:00:00</span>
+					</div>
+					<p class="top_time">Today's top time is <span id="top_time">3:45</span></p>
+				</div>
+			</div>
+
+			<div class="body">
+				<div class="opposite_score">
+					<p>234</p>
+				</div>
+
+				<div class="left_score score">
+					<div class="rotate_left_icon" onclick="turnLeft();">
+						<div class="left_arrow"></div>
+					</div>
+					<p>345</p>
+				</div>
+
+				<div class="right_score score">
+					<p>456</p>
+					<div class="rotate_right_icon" onclick="turnRight();">
+						<div class="right_arrow"></div>
+					</div>
+				</div>
+
+				<div id="puzzle">
+					<div class="top">
+					</div>
+					<div class="puzzle_row" id="row_0">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(0); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(0); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_1">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(1); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(1); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_2">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(2); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(2); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_3">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(3); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(3); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_4">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(4); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(4); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_5">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(5); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(5); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_6">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(6); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(6); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_7">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(7); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(7); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_8">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(8); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(8); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_row" id="row_9">
+						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(9); displayConfig(curConfig);"></div>
+						<div class="row_left_num">12</div>
+						<div class="row_center_num"><span>23</span></div>
+						<div class="row_right_num">34</div>
+						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(9); displayConfig(curConfig);"></div>
+					</div>
+
+					<div class="puzzle_base center_score">
+						<p>230</p>
+					</div>
+
+				</div>
+
+				<div class="footer">
+					<button class="btn btn-warning scores_btn">Top scores</button>
+					<button class="btn btn-warning how_btn">Show me how</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

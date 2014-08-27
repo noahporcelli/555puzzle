@@ -1,0 +1,268 @@
+//
+//////////////////////////////
+// div {
+// 	outline-style: solid;
+// 	outline-width: 1.5px;
+// 	outline-color: red;
+// }
+//////////////////////////
+body {
+	width: 100%;
+	font-family: arial;
+}
+.btn-warning {
+	background-color: #d88e0c;
+	border-color: #d88e0c;
+}
+button.btn {
+	font-weight: bold;
+}
+p {
+	text-align: center;
+}
+#all {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+.title_bar {
+	background-color: #28518f;
+	height: 160px;
+	position: relative;
+}
+.body {
+	background-image: url('bg.png');
+	position: relative;
+}
+.left_title_bit {
+	width: 600px;
+	position: absolute;
+	color: white;
+	left: 75px;
+	.main_title {
+		float: left;
+		font-size: 40px;
+		margin-top: 0.6em;
+	}
+	.secondary_title {
+		float: left;
+		font-size: 20px;
+		position: relative;
+		bottom: 45px;
+	}
+}
+.right_title_bit {
+	width: 260px;
+	position: absolute;
+	right: 90px;
+	color: white;
+	.timer_container {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+	}
+	#timer {
+		font-size: 34px;
+		position: relative;
+		top: 7px;
+		left: 10px;
+	}
+	.top_time {
+		font-size: 14px;
+		text-align: left;
+	}
+	button.btn {
+		padding: 10px 15px;
+	}
+}
+///////////////////////////////
+.opposite_score {
+	margin: 0 auto;
+	padding-top: 23px;
+	width: 100px;
+	p {
+		color: white;
+		//opacity: 0.3;
+	}
+}
+.score {
+	width: 160px;
+	position: absolute;
+	p {
+		color: white;
+		//opacity: 0.5;
+	}
+}
+.opposite_score p, .left_score p, .right_score p {
+	font-size: 35px;
+}
+.right_score {
+	right: 120px;
+	top: 430px;
+	p {
+		bottom: 35px;
+		float: left;
+	}
+}
+.left_score {
+	left: 120px;
+	top: 430px;
+	p {
+		bottom: 35px;
+		float: right;
+	}
+}
+.rotate_right_icon, .rotate_left_icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	background-color: #28518f;
+	&:hover {
+		background-color: white;
+		color: orange;
+		cursor: pointer;
+		.left_arrow {
+			background-image: url('arrow-ol.png') !important;
+		}
+		.right_arrow {
+			background-image: url('arrow-or.png') !important;
+		}
+	}
+	div {
+		width: 12px;
+		height: 20px;
+		position: relative;
+	}
+	.left_arrow {
+		background-image: url('arrow-l.png');
+		left: 18px;
+		top: 15px;
+	}
+	.right_arrow {
+		background-image: url('arrow-r.png');
+		left: 21px;
+		top: 15px;
+	}
+}
+.rotate_right_icon {
+	float: right;
+}
+.rotate_left_icon {
+	float: left;
+}
+.rotate_right_icon span {
+	position: relative;
+	top: 18px;
+	left: 20px;
+}
+.rotate_left_icon span {
+	position: relative;
+	top: 18px;
+	left: 19px;
+}
+.left_score p, .right_score p {
+	position: relative;
+}
+//////////////////////////////////////////////
+#puzzle {
+	width: 360px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.top {
+	background-image: url('top.png');
+	width: 39px;
+	height: 16px;
+	margin: 0 auto;
+	position: relative;
+	top: 10px;
+}
+.puzzle_row {
+	width: 360px;
+	height: 60px;
+	margin-top: 6px;
+	z-index: 2;
+}
+.row_center_num {
+	background-image: url('cube.png');
+	width: 100px;
+	height: 66px;
+	float: left;
+	z-index: 2;
+	position: relative;
+	font-size: 45px;
+	span {
+		position: relative;
+		left: 25px;
+		top: 5px;
+	}
+}
+.rotate_row_left_icon, .rotate_row_right_icon {
+	font-size: 30px;
+	color: white;
+	float: left;
+	&:hover {
+		color: orange;
+		cursor: pointer;
+	}
+}
+.rotate_row_left_icon {
+	margin-left: 20px;
+}
+.row_left_num {
+	margin-left: 20px;
+}
+.row_center_num {
+	margin-left: 27px;
+}
+.row_right_num {
+	margin-left: 20px;
+}
+.rotate_row_right_icon {
+	margin-left: 20px;
+}
+.rotate_row_left_icon, .rotate_row_right_icon, 
+.row_right_num, .row_left_num {
+	position: relative;
+	top: 15px;
+}
+.row_right_num, .row_left_num {
+	color: white;
+	opacity: 0.5;
+	font-size: 30px;
+	float: left;
+}
+.puzzle_base {
+	background-image: url('base.png');
+	width: 360px;
+	height: 71px;
+	position: relative;
+	bottom: 21px;
+	z-index: 1;
+	p {
+		margin: 0 auto;
+		padding-top: 30px;
+		font-size: 30px;
+	}
+}
+/////////////////////////////////////
+.footer {
+	width: 100%;
+	height: 113px;
+	background-image: url('table.png');
+	position: relative;
+	bottom: 82px;
+	.scores_btn {
+		position: absolute;
+		left: 13%;
+		top: 35px;
+		padding: 10px 20px;
+	}
+	.how_btn {
+		position: absolute;
+		right: 13%;
+		top: 35px;
+		padding: 10px 20px;
+	}
+}
+
