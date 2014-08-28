@@ -27,9 +27,18 @@
 		#front {
 			transform: rotateY(90deg);// translateZ(@w2);
 		}
+		#top {
+			transform: rotateY(90deg) rotateX(90deg);
+		}
+		#bottom {
+			transform: rotateY(90deg) rotateX(-90deg);
+		}
+		#back {
+			transform: rotateY(270deg);
+		}
 	}
 }
-#front, #left, #right {
+#front, #left, #right, #top, #bottom, #back {
 	position: absolute;
 	width: @w;
 	height: @h;
@@ -49,4 +58,16 @@
 #front {
 	background-color: red;
 	transform: translateZ(0);
+}
+#back {
+	background-color: yellow;
+	transform: rotateY(180deg);
+}
+#top {
+	background-color: gray;
+	transform: rotateX(90deg);
+}
+#bottom {
+	background-color: orange;
+	transform: rotateX(-90deg);
 }
