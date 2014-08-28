@@ -4,6 +4,7 @@
 		<title>555 Puzzle</title>
 		<link rel="stylesheet" href="bootstrap.css/css/bootstrap.css" />
 		<link rel="stylesheet" href="555game.css" />
+		<script src="jquery-2.1.1.js"></script>
 		<script type="text/javascript" src="555game.js"></script>
 	</head>
 
@@ -46,83 +47,152 @@
 					<div class="top">
 					</div>
 					<div class="puzzle_row" id="row_0">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(0); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(0);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(0); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(0);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_1">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(1); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(1);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(1); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(1);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_2">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(2); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(2);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(2); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(2);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_3">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(3); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(3);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(3); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(3);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_4">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(4); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(4);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(4); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(4);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_5">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(5); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(5);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(5); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(5);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_6">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(6); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(6);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(6); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(6);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_7">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(7); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(7);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(7); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(7);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_8">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(8); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(8);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(8); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(8);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_9">
-						<div class="rotate_row_left_icon glyphicon glyphicon-chevron-left" onclick="rotateRowLeft(9); displayConfig(curConfig);"></div>
+						<div class="rotate_row_left_icon" onclick="rotateRowLeft(9);"></div>
 						<div class="row_left_num">12</div>
-						<div class="row_center_num"><span>23</span></div>
+						<div class="row_center_num">
+							<div class="cube_top"></div>
+							<div class="cube">
+								<div class="cube_left transit"><span>23</span></div>
+								<div class="cube_front transit"><span>23</span></div>
+								<div class="cube_right transit"><span>23</span></div>
+							</div>
+						</div>
 						<div class="row_right_num">34</div>
-						<div class="rotate_row_right_icon glyphicon glyphicon-chevron-right" onclick="rotateRowRight(9); displayConfig(curConfig);"></div>
+						<div class="rotate_row_right_icon" onclick="rotateRowRight(9);"></div>
 					</div>
 
 					<div class="puzzle_base center_score">

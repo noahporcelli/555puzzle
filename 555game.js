@@ -1,5 +1,6 @@
 var arrangement, curConfig, targ, targets, zeroes, len, width,
-	center_nums, left_nums, right_nums, centerScore, leftScore, rightScore, oppositeScore;
+	center_nums, left_nums, right_nums, centerScore, leftScore, rightScore, oppositeScore,
+	cube_lefts, cube_fronts, cube_rights;
 function do_setups() {
 	arrangement = [
 		[25, 60, 95, 30],
@@ -19,7 +20,9 @@ function do_setups() {
 	zeroes = [0, 0, 0, 0];
 	len = 10
 	width = 4
-	center_nums = document.getElementsByClassName("row_center_num");
+	center_nums = $(".row_center_num").map(function () {
+		return $(this).find("span");
+	}).get();
 	left_nums = document.getElementsByClassName("row_left_num");
 	right_nums = document.getElementsByClassName("row_right_num");
 	centerScore = document.getElementsByClassName("center_score")[0].getElementsByTagName("p")[0];
@@ -27,6 +30,14 @@ function do_setups() {
 	rightScore = document.getElementsByClassName("right_score")[0].getElementsByTagName("p")[0];
 	oppositeScore = document.getElementsByClassName("opposite_score")[0].getElementsByTagName("p")[0];
 	displayConfig(arrangement);
+	cube_lefts = {};
+	cube_fronts = {};
+	cube_rights = {};
+	for (var i = 0; i < len; i++) {
+		cube_lefts[i] = $("#row_" + i + " .cube_left");
+		cube_rights[i] = $("#row_" + i + " .cube_right");
+		cube_fronts[i] = $("#row_" + i + " .cube_front");
+	}
 }
 var print = function (a) { console.log(a); };
 //Assumes len is even and width <= 10
@@ -117,10 +128,15 @@ var updateTotalsColors = function() {
 }
 
 var displayConfig = function(config) {
+	console.log("displayConfig");
 	for (var i = 0; i < len; i++) {
-		center_nums[i].innerHTML = "<span>" + config[i][0] + "</span>";
+		center_nums[i][1].innerHTML = "" + config[i][0];
 		left_nums[i].innerHTML = "" + config[i][3];
+		center_nums[i][0].innerHTML = "" + config[i][3];
 		right_nums[i].innerHTML = "" + config[i][1];
+		center_nums[i][2].innerHTML = "" + config[i][1];
+		k = center_nums[1];
+		j = config[1][0];
 	}
 	var totals = findTotals(config);
 	centerScore.innerHTML = "" + totals[0];
@@ -130,26 +146,73 @@ var displayConfig = function(config) {
 	updateTotalsColors();
 }
 var rotateRowLeft = function(rowNum) {
+	console.log("rotateRowLeft(" + rowNum + ")");
 	var oldRow = curConfig[rowNum];
 	var newRow = oldRow.slice();
 	for (var i = 0; i < width; i++)
 		newRow[i] = oldRow[(i + 1) % width];
 	curConfig[rowNum] = newRow;
+	animateRowLeft(rowNum);
 }
 var rotateRowRight = function(rowNum) {
+	console.log("rotateRowRight(" + rowNum + ")");
 	var oldRow = curConfig[rowNum];
 	var newRow = oldRow.slice();
 	for (var i = 0; i < width; i++)
 		newRow[i] = oldRow[(i + 3) % width];
 	curConfig[rowNum] = newRow;
+	animateRowRight(rowNum);
 }
 var turnRight = function() {
+	console.log("turnRight");
 	for (var i = 0; i < len; i++)
 		rotateRowRight(i);
-	displayConfig(curConfig);
 }
 var turnLeft = function() {
+	console.log("turnLeft");
 	for (var i = 0; i < len; i++)
 		rotateRowLeft(i);
-	displayConfig(curConfig);
+}
+var animateRowLeft = function(rowNum) {
+	console.log("animateRowLeft(" + rowNum + ")");
+	cube_lefts[rowNum].addClass("cube_left_L");
+	cube_rights[rowNum].addClass("cube_right_L");
+	cube_fronts[rowNum].addClass("cube_front_L");
+	setTimeout(resetRow(rowNum), 300);
+}
+var animateRowRight = function(rowNum) {
+	console.log("animateRowRight(" + rowNum + ")");
+	cube_lefts[rowNum].addClass("cube_left_R");
+	cube_rights[rowNum].addClass("cube_right_R");
+	cube_fronts[rowNum].addClass("cube_front_R");
+	setTimeout(resetRow(rowNum), 300);
+}
+var resetRow = function(rowNum) {
+	console.log("resetRow(" + rowNum + ")");
+	return function () {
+		console.log("resetting " + rowNum);
+		cube_lefts[rowNum].removeClass("transit");
+		cube_rights[rowNum].removeClass("transit");
+		cube_fronts[rowNum].removeClass("transit");
+		if (cube_lefts[rowNum].hasClass("cube_left_L"))
+			cube_lefts[rowNum].removeClass("cube_left_L");
+		else if (cube_lefts[rowNum].hasClass("cube_left_R"))
+			cube_lefts[rowNum].removeClass("cube_left_R");
+
+		if (cube_rights[rowNum].hasClass("cube_right_L"))
+			cube_rights[rowNum].removeClass("cube_right_L");
+		else if (cube_rights[rowNum].hasClass("cube_right_R"))
+			cube_rights[rowNum].removeClass("cube_right_R");
+
+		if (cube_fronts[rowNum].hasClass("cube_front_L"))
+			cube_fronts[rowNum].removeClass("cube_front_L");
+		else if (cube_fronts[rowNum].hasClass("cube_front_R"))
+			cube_fronts[rowNum].removeClass("cube_front_R");
+		displayConfig(curConfig);
+		setTimeout(function () {
+			cube_lefts[rowNum].addClass("transit");
+			cube_rights[rowNum].addClass("transit");
+			cube_fronts[rowNum].addClass("transit");
+		}, 300);
+	};
 }

@@ -82,7 +82,7 @@ p {
 	width: 100px;
 	p {
 		color: white;
-		//opacity: 0.3;
+		opacity: 0.6;
 	}
 }
 .score {
@@ -162,6 +162,7 @@ p {
 }
 .left_score p, .right_score p {
 	position: relative;
+	opacity: 0.8;
 }
 //////////////////////////////////////////////
 #puzzle {
@@ -183,8 +184,9 @@ p {
 	margin-top: 6px;
 	z-index: 2;
 }
+
 .row_center_num {
-	background-image: url('cube.png');
+	//background-image: url('cube.png');
 	width: 100px;
 	height: 66px;
 	float: left;
@@ -194,23 +196,89 @@ p {
 	span {
 		position: relative;
 		left: 25px;
-		top: 5px;
+		top: -1px;
+	}
+	.cube_top {
+		background-image: url('cube_top.png');
+		width: 100px;
+		height: 6px;
+	}
+	.cube {
+		@perspective: 300px;
+		@w: 100px;
+		@w2: @w / 2;
+		@time: .3s;
+		transform-style: preserve-3d;
+		-webkit-perspective-origin: @w2 @w2;
+		-webkit-perspective: @perspective;
+		perspective-origin: @w2 @w2;
+		perspective: @perspective;
+		position: relative;
+		.transit {
+			transition: transform @time;
+			-webkit-transition: transform @time;
+		}
+		.cube_front, .cube_left, .cube_right {
+			background-image: url('cube.png');
+			width: @w;
+			height: 60px;
+			position: absolute;
+			border-radius: 3px;
+			backface-visibility: hidden;
+			transform-origin: @w2 @w2 -@w2;
+		}
+		.cube_front {
+			transform: translateZ(0);
+			-webkit-transform: translateZ(0);
+			&.cube_front_R {
+				.cube_right();
+			}
+			&.cube_front_L {
+				.cube_left();
+			}
+		}
+		.cube_left {
+			transform: rotateY(-90deg);
+			-webkit-transform: rotateY(-90deg);
+			&.cube_left_R {
+				.cube_front();
+			}
+			&.cube_left_L {
+				display: none;
+			}
+		}
+		.cube_right {
+			transform: rotateY(90deg);
+			-webkit-transform: rotateY(90deg);
+			&.cube_right_R {
+				display: none;
+			}
+			&.cube_right_L {
+				.cube_front();
+			}
+		}
 	}
 }
 .rotate_row_left_icon, .rotate_row_right_icon {
-	font-size: 30px;
-	color: white;
 	float: left;
 	&:hover {
-		color: orange;
 		cursor: pointer;
 	}
 }
 .rotate_row_left_icon {
 	margin-left: 20px;
+	background-image: url("arrow-l.png");
+	width: 12px;
+	height: 20px;
+	position: relative;
+	top: 24px;
+	left: 8px;
+	&:hover {
+		background-image: url("arrow-ol.png");
+	}
 }
 .row_left_num {
-	margin-left: 20px;
+	margin-left: 37px;
 }
 .row_center_num {
 	margin-left: 27px;
@@ -219,9 +287,17 @@ p {
 	margin-left: 20px;
 }
 .rotate_row_right_icon {
-	margin-left: 20px;
+	margin-left: 32px;
+	background-image: url("arrow-r.png");
+	width: 12px;
+	height: 20px;
+	position: relative;
+	top: 24px;
+	left: 8px;
+	&:hover {
+		background-image: url("arrow-or.png");
+	}
 }
-.rotate_row_left_icon, .rotate_row_right_icon, 
 .row_right_num, .row_left_num {
 	position: relative;
 	top: 15px;

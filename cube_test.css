@@ -1,0 +1,45 @@
+#row {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  -webkit-perspective-origin: 50% 50%;
+  -webkit-perspective: 300px;
+  perspective-origin: 50% 50%;
+  perspective: 300px;
+  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transform: translateZ(-100px);
+  -webkit-transform: translateZ(1000px);
+}
+#row:hover #left {
+  transform: translateZ(0);
+}
+#row:hover #right {
+  transform: rotateY(180deg);
+}
+#row:hover #front {
+  transform: rotateY(90deg);
+}
+#front,
+#left,
+#right {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transform-origin: 50% 50% -100px;
+  opacity: 0.6;
+}
+#left {
+  background-color: green;
+  transform: rotateY(-90deg);
+}
+#right {
+  background-color: blue;
+  transform: rotateY(90deg);
+}
+#front {
+  background-color: red;
+  transform: translateZ(0);
+}

@@ -74,6 +74,7 @@ p {
 }
 .opposite_score p {
   color: white;
+  opacity: 0.6;
 }
 .score {
   width: 160px;
@@ -161,6 +162,7 @@ p {
 .left_score p,
 .right_score p {
   position: relative;
+  opacity: 0.8;
 }
 #puzzle {
   width: 360px;
@@ -182,7 +184,6 @@ p {
   z-index: 2;
 }
 .row_center_num {
-  background-image: url('cube.png');
   width: 100px;
   height: 66px;
   float: left;
@@ -193,24 +194,208 @@ p {
 .row_center_num span {
   position: relative;
   left: 25px;
-  top: 5px;
+  top: -1px;
+}
+.row_center_num .cube_top {
+  background-image: url('cube_top.png');
+  width: 100px;
+  height: 6px;
+}
+.row_center_num .cube {
+  transform-style: preserve-3d;
+  -webkit-perspective-origin: 50px 50px;
+  -webkit-perspective: 300px;
+  perspective-origin: 50px 50px;
+  perspective: 300px;
+  position: relative;
+}
+.row_center_num .cube .transit {
+  transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
+}
+.row_center_num .cube .cube_front,
+.row_center_num .cube .cube_left,
+.row_center_num .cube .cube_right {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_front {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.row_center_num .cube .cube_front.cube_front_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+}
+.row_center_num .cube .cube_front.cube_front_R.cube_right_R {
+  display: none;
+}
+.row_center_num .cube .cube_front.cube_front_R.cube_right_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_front.cube_front_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+}
+.row_center_num .cube .cube_front.cube_front_L.cube_left_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_front.cube_front_L.cube_left_L {
+  display: none;
+}
+.row_center_num .cube .cube_left {
+  transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+}
+.row_center_num .cube .cube_left.cube_left_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.row_center_num .cube .cube_left.cube_left_R.cube_front_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+}
+.row_center_num .cube .cube_left.cube_left_R.cube_front_R.cube_right_R {
+  display: none;
+}
+.row_center_num .cube .cube_left.cube_left_R.cube_front_R.cube_right_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_left.cube_left_R.cube_front_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_left.cube_left_L {
+  display: none;
+}
+.row_center_num .cube .cube_right {
+  transform: rotateY(90deg);
+  -webkit-transform: rotateY(90deg);
+}
+.row_center_num .cube .cube_right.cube_right_R {
+  display: none;
+}
+.row_center_num .cube .cube_right.cube_right_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.row_center_num .cube .cube_right.cube_right_L.cube_front_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_right.cube_right_L.cube_front_L {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+  transform: rotateY(-90deg);
+  -webkit-transform: rotateY(-90deg);
+}
+.row_center_num .cube .cube_right.cube_right_L.cube_front_L.cube_left_R {
+  background-image: url('cube.png');
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-origin: 50px 50px -50px;
+}
+.row_center_num .cube .cube_right.cube_right_L.cube_front_L.cube_left_L {
+  display: none;
 }
 .rotate_row_left_icon,
 .rotate_row_right_icon {
-  font-size: 30px;
-  color: white;
   float: left;
 }
 .rotate_row_left_icon:hover,
 .rotate_row_right_icon:hover {
-  color: orange;
   cursor: pointer;
 }
 .rotate_row_left_icon {
   margin-left: 20px;
+  background-image: url("arrow-l.png");
+  width: 12px;
+  height: 20px;
+  position: relative;
+  top: 24px;
+  left: 8px;
+}
+.rotate_row_left_icon:hover {
+  background-image: url("arrow-ol.png");
 }
 .row_left_num {
-  margin-left: 20px;
+  margin-left: 37px;
 }
 .row_center_num {
   margin-left: 27px;
@@ -219,10 +404,17 @@ p {
   margin-left: 20px;
 }
 .rotate_row_right_icon {
-  margin-left: 20px;
+  margin-left: 32px;
+  background-image: url("arrow-r.png");
+  width: 12px;
+  height: 20px;
+  position: relative;
+  top: 24px;
+  left: 8px;
 }
-.rotate_row_left_icon,
-.rotate_row_right_icon,
+.rotate_row_right_icon:hover {
+  background-image: url("arrow-or.png");
+}
 .row_right_num,
 .row_left_num {
   position: relative;
