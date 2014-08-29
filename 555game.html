@@ -4,11 +4,13 @@
 		<title>555 Puzzle</title>
 		<link rel="stylesheet" href="bootstrap.css/css/bootstrap.css" />
 		<link rel="stylesheet" href="555game.css" />
-		<script src="jquery-2.1.1.js"></script>
+		<script type="text/javascript" src="jquery-2.1.1.js"></script>
+		<script type="text/javascript" src="underscore.js"></script>
+		<script type="text/javascript" src="bootstrap.min.js"></script>
 		<script type="text/javascript" src="555game.js"></script>
 	</head>
 
-	<body onload="do_setups()">
+	<body onload="do_setups()" class="">
 		<div id="all">
 			<div class="title_bar">
 				<div class="left_title_bit">
@@ -16,28 +18,65 @@
 					<p class="secondary_title">Make all 4 sides add up to 555</p>
 				</div>
 				<div class="right_title_bit">
-					<div class="timer_container">
-						<button class="btn btn-warning">Start puzzle</button>
-						<span id="timer" class="timer">00:00:00</span>
-					</div>
-					<p class="top_time">Today's top time is <span id="top_time">3:45</span></p>
+					<div class="about_link" data-toggle="modal" data-target="#about_modal">About</div>
+					<div class="separator"></div>
+					<div class="top_scores_link">Top Scores</div>
 				</div>
 			</div>
+			<div class="modal fade" id="about_modal" tabindex="-1" role="dialog" aria-labelledby="about_modalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				    <div class="modal-content">
+					      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <h4 class="modal-title" id="myModalLabel">About</h4>
+					      </div>
+					      <div class="modal-body">
+					        	<p>In order to solve this classic puzzle, you must rotate each row so the the total on each side is five hundred and fifty-five. <p>
+					    
+					        	<p>Originally created by the ancient Greeks, this puzzle has been around for over two thousand years- in fact, it is believed to be one of the first puzzles ever created. Initially used as a teaching tool, it is now one of the most popular puzzles in England, being the main source of entertainment for more than a million families across the country.<p>
+
+					        	<p>There are 36 ways of solving this puzzle- how many can YOU find?</p>
+					      </div>
+					      <!-- <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						       
+					      </div> -->
+					    </div>
+				  </div>
+			</div>
+
 
 			<div class="body">
+				<div class="timer_bit">
+					<div class="timer_container">
+						<button class="btn btn-warning" onclick="startGame();">Start puzzle</button>
+						<span id="timer" class="timer">00:00:00</span>
+					</div>
+					<p class="top_time">
+						<span class="trophy"></span>
+						Today's top time is 
+						<span id="top_time">3:45</span>
+					</p>
+				</div>
 				<div class="opposite_score">
+					<div class="_L INVIS"><p>345</p></div>
 					<p>234</p>
+					<div class="_R INVIS"><p>345</p></div>
 				</div>
 
 				<div class="left_score score">
 					<div class="rotate_left_icon" onclick="turnLeft();">
 						<div class="left_arrow"></div>
 					</div>
+					<div class="_L INVIS"><p>345</p></div>
 					<p>345</p>
+					<div class="_R INVIS"><p>345</p></div>
 				</div>
 
 				<div class="right_score score">
-					<p>456</p>
+					<div class="_L INVIS"><p>345</p></div>
+					<p>345</p>
+					<div class="_R INVIS"><p>345</p></div>
 					<div class="rotate_right_icon" onclick="turnRight();">
 						<div class="right_arrow"></div>
 					</div>
@@ -48,22 +87,29 @@
 					</div>
 					<div class="puzzle_row" id="row_0">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(0);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
 								<div class="cube_left transit"><span>23</span></div>
 								<div class="cube_front transit"><span>23</span></div>
 								<div class="cube_right transit"><span>23</span></div>
+								<div class="cube_back"></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(0);"></div>
 					</div>
 
 					<div class="puzzle_row" id="row_1">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(1);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -72,13 +118,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(1);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_2">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(2);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -87,12 +136,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(2);"></div>
 					</div>
 					<div class="puzzle_row" id="row_3">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(3);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -101,13 +154,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(3);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_4">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(4);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -116,13 +172,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(4);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_5">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(5);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -131,13 +190,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(5);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_6">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(6);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -146,13 +208,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(6);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_7">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(7);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -161,13 +226,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(7);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_8">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(8);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -176,13 +244,16 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(8);"></div>
 					</div>
-
 					<div class="puzzle_row" id="row_9">
 						<div class="rotate_row_left_icon" onclick="rotateRowLeft(9);"></div>
+						<div class="row_left_num_L INVIS">01</div>
 						<div class="row_left_num">12</div>
+						<div class="row_left_num_R INVIS">67</div>
 						<div class="row_center_num">
 							<div class="cube_top"></div>
 							<div class="cube">
@@ -191,19 +262,47 @@
 								<div class="cube_right transit"><span>23</span></div>
 							</div>
 						</div>
+						<div class="row_right_num_L INVIS">01</div>
 						<div class="row_right_num">34</div>
+						<div class="row_right_num_R INVIS">67</div>
 						<div class="rotate_row_right_icon" onclick="rotateRowRight(9);"></div>
 					</div>
 
+
 					<div class="puzzle_base center_score">
+						<div class="_L INVIS"><p>345</p></div>
 						<p>230</p>
+						<div class="_R INVIS"><p>345</p></div>
 					</div>
 
 				</div>
-
 				<div class="footer">
-					<button class="btn btn-warning scores_btn">Top scores</button>
-					<button class="btn btn-warning how_btn">Show me how</button>
+					<button class="btn btn-warning scores_btn" data-toggle="modal" data-target="#howtoplay_modal">How to play</button>
+					<button class="btn btn-warning how_btn" onclick="solve()">Show Me How</button>
+				</div>
+
+				<div class="modal fade" id="howtoplay_modal" tabindex="-1" role="dialog" aria-labelledby="about_modalLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+					    <div class="modal-content">
+						      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							        <h4 class="modal-title" id="myModalLabel">About</h4>
+						      </div>
+						      <div class="modal-body">
+						        	<p>In order to solve this classic puzzle, you must rotate each row so the the total on each side is five hundred and fifty-five. <p>
+						    
+						        	<p>Press the arrow on either side of a row to rotate that row in the direction of the arrow.</p>
+
+						        	<p>Press one of the arrows on the sides to rotate all of the rows.</p>
+
+						        	<p>Press the "Start Puzzle" button to start the timer, or the "Show Me How" button to see a solution.</p>
+						      </div>
+						      <!-- <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							       
+						      </div> -->
+						    </div>
+					  </div>
 				</div>
 			</div>
 		</div>

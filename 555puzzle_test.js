@@ -71,6 +71,7 @@ function doStuff1() {
 			solutions = solutions.concat(memo1[i] + memo2[i]);
 		}
 	}
-	console.log(numSols);
-	console.log(solutions);
+	//console.log(numSols);
+	//console.log(solutions);
+	return solutions;
 }

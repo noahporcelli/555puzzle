@@ -1,5 +1,5 @@
 //
-//////////////////////////////
+// //////////////////////////////
 // div {
 // 	outline-style: solid;
 // 	outline-width: 1.5px;
@@ -16,6 +16,7 @@ body {
 }
 button.btn {
 	font-weight: bold;
+	box-shadow: 2px 2px 2px black;
 }
 p {
 	text-align: center;
@@ -32,6 +33,8 @@ p {
 .body {
 	background-image: url('bg.png');
 	position: relative;
+	background-size: 1200px 900px;
+	background-repeat: no-repeat;
 }
 .left_title_bit {
 	width: 600px;
@@ -51,9 +54,43 @@ p {
 	}
 }
 .right_title_bit {
-	width: 260px;
+	width: 300px;
 	position: absolute;
 	right: 90px;
+	top: 55px;
+	div {
+		color: white;
+		font-size: 30px;
+		float: left;
+		&:hover {
+			cursor: pointer;
+			color: #d88e0c;
+			background-color: white;
+			border-radius: 5px;
+			padding: 5px 15px;
+			margin: -5px -15px;
+		}
+	}
+	.separator {
+		@d: 10px;
+		width: @d;
+		height: @d;
+		border-radius: @d / 2;
+		background-color: white;
+		position: relative;
+		top: 15px;
+		margin-left: 25px;
+		margin-right: 25px; 
+	}
+}
+.trophy {
+	// background-image: url()
+}
+.timer_bit {
+	width: 260px;
+	position: absolute;
+	left: 90px;
+	top: 35px;
 	color: white;
 	.timer_container {
 		width: 100%;
@@ -100,7 +137,7 @@ p {
 	right: 120px;
 	top: 430px;
 	p {
-		bottom: 35px;
+		bottom: 34px;
 		float: left;
 	}
 }
@@ -108,7 +145,7 @@ p {
 	left: 120px;
 	top: 430px;
 	p {
-		bottom: 35px;
+		bottom: 34px;
 		float: right;
 	}
 }
@@ -204,21 +241,25 @@ p {
 		height: 6px;
 	}
 	.cube {
-		@perspective: 300px;
+		@perspective: 600px;
 		@w: 100px;
 		@w2: @w / 2;
-		@time: .3s;
+		@time: .5s;
 		transform-style: preserve-3d;
 		-webkit-perspective-origin: @w2 @w2;
 		-webkit-perspective: @perspective;
 		perspective-origin: @w2 @w2;
 		perspective: @perspective;
 		position: relative;
+		.cube_back {
+			transform: rotateY(180deg);
+			-webkit-transform: rotateY(180deg);
+		}
 		.transit {
 			transition: transform @time;
 			-webkit-transition: transform @time;
 		}
-		.cube_front, .cube_left, .cube_right {
+		.cube_front, .cube_left, .cube_right, .cube_back {
 			background-image: url('cube.png');
 			width: @w;
 			height: 60px;
@@ -302,9 +343,9 @@ p {
 	position: relative;
 	top: 15px;
 }
-.row_right_num, .row_left_num {
+.row_right_num, .row_left_num, .row_left_num_R, .row_left_num_L, .row_right_num_R, .row_right_num_L {
 	color: white;
-	opacity: 0.5;
+	opacity: @opacity;
 	font-size: 30px;
 	float: left;
 }
@@ -341,4 +382,158 @@ p {
 		padding: 10px 20px;
 	}
 }
+////////////////////////////////////////////////
+@-webkit-keyframes fadetoleft {
+	0% {
+		opacity: @opacity;
+		transform: translateX(0);
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-@fade_dist);
+		visibility: visible;
+	}
+}
+@-webkit-keyframes fadefromright {
+	0% {
+		opacity: 0;
+		transform: translateX(0);
+		visibility: visible;
+	}
+	100% {
+		opacity: @opacity;
+		transform: translateX(-@fade_dist);
+		-webkit-transform: translateX(-@fade_dist);
+		visibility: visible;
+	}
+}
+@-webkit-keyframes fadefromleft {
+	0% {
+		opacity: 0;
+		transform: translateX(0);
+		visibility: visible;
+	}
+	100% {
+		opacty: @opacity;
+		transform: translateX(@fade_dist);
+		-webkit-transform: translateX(@fade_dist);
+		visibility: visible;
+	}
+}
+@-webkit-keyframes fadetoright {
+	0% {
+		opacity: @opacity;
+		transform: translateX(0);
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(@fade_dist);
+		-webkit-transform: translateX(@fade_dist);
+		visibility: visible;
+	}
+}
+@fade_dist: 60px;
+@opacity: 0.5;
+@fade_time: .5s;
+.fadeToLeft {
+	animation: fadetoleft @fade_time;
+	-webkit-animation: fadetoleft @fade_time;
+	position: relative; 
+}
+.fadeFromRight {
+	animation: fadefromright @fade_time;
+	-webkit-animation: fadefromright @fade_time;
+	position: relative;
+}
+.fadeToRight {
+	animation: fadetoright @fade_time;
+	-webkit-animation: fadetoright @fade_time;
+	position: relative;
+}
+.fadeFromLeft {
+	animation: fadefromleft @fade_time;
+	-webkit-animation: fadefromleft @fade_time;
+	position: relative;
+}
+.row_left_num_R, .row_left_num_L, .row_right_num_R, .row_right_num_L {
+	position: relative;
+	overflow: visible;
+	width: 0;
+	height: 0;
+	top: 14.5px;
+}
+.row_left_num_R, .row_right_num_R {
+	left: @fade_dist - 34px;
+}
+.row_right_num_L {
+	left: 20px - @fade_dist;
+}
+.row_right_num_R {
+}
+.row_left_num_L {
+	left: 38px - @fade_dist;
+}
+.INVIS {
+	visibility: hidden;
+}
+@dist: @fade_dist;
+._L, ._R {
+	width: 0;
+	height: 0;
+	overflow: visible;
+	position: relative;
+	float: left;
+}
+._R {
 
+}
+.left_score {
+	._L {
+		left: 110px - @dist;
+	}
+	._R {
+		left: 110px + @dist;
+	}
+}
+.right_score {
+	._L {
+		right: @dist;
+	}
+	._R {
+		left: @dist - 57px;
+	}
+}
+.opposite_score {
+	._L {
+		left: 22px - @dist;
+	}
+	._R {
+		left: 22px + @dist;
+		bottom: 120px;
+	}
+}
+.center_score {
+	._L {
+		right: 76px + @dist;
+	}
+	._R {
+		left: 154px + @dist;
+		bottom: 72px;
+	}
+}
+///////////////////////////////////////////////
+#about_modal, #howtoplay_modal {
+	h4 {
+		font-size: 30px;
+		padding: 5px 15px;
+	}
+	.modal-body {
+		padding: 20px 30px;
+		text-indent: 25px;
+		p {
+			text-align: justify;
+		}
+	}
+}

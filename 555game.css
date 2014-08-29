@@ -8,6 +8,7 @@ body {
 }
 button.btn {
   font-weight: bold;
+  box-shadow: 2px 2px 2px black;
 }
 p {
   text-align: center;
@@ -24,6 +25,8 @@ p {
 .body {
   background-image: url('bg.png');
   position: relative;
+  background-size: 1200px 900px;
+  background-repeat: no-repeat;
 }
 .left_title_bit {
   width: 600px;
@@ -43,28 +46,58 @@ p {
   bottom: 45px;
 }
 .right_title_bit {
-  width: 260px;
+  width: 300px;
   position: absolute;
   right: 90px;
+  top: 55px;
+}
+.right_title_bit div {
+  color: white;
+  font-size: 30px;
+  float: left;
+}
+.right_title_bit div:hover {
+  cursor: pointer;
+  color: #d88e0c;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: -5px -15px;
+}
+.right_title_bit .separator {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  top: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.timer_bit {
+  width: 260px;
+  position: absolute;
+  left: 90px;
+  top: 35px;
   color: white;
 }
-.right_title_bit .timer_container {
+.timer_bit .timer_container {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
 }
-.right_title_bit #timer {
+.timer_bit #timer {
   font-size: 34px;
   position: relative;
   top: 7px;
   left: 10px;
 }
-.right_title_bit .top_time {
+.timer_bit .top_time {
   font-size: 14px;
   text-align: left;
 }
-.right_title_bit button.btn {
+.timer_bit button.btn {
   padding: 10px 15px;
 }
 .opposite_score {
@@ -93,7 +126,7 @@ p {
   top: 430px;
 }
 .right_score p {
-  bottom: 35px;
+  bottom: 34px;
   float: left;
 }
 .left_score {
@@ -101,7 +134,7 @@ p {
   top: 430px;
 }
 .left_score p {
-  bottom: 35px;
+  bottom: 34px;
   float: right;
 }
 .rotate_right_icon,
@@ -204,18 +237,23 @@ p {
 .row_center_num .cube {
   transform-style: preserve-3d;
   -webkit-perspective-origin: 50px 50px;
-  -webkit-perspective: 300px;
+  -webkit-perspective: 600px;
   perspective-origin: 50px 50px;
-  perspective: 300px;
+  perspective: 600px;
   position: relative;
 }
+.row_center_num .cube .cube_back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
 .row_center_num .cube .transit {
-  transition: transform 0.3s;
-  -webkit-transition: transform 0.3s;
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
 }
 .row_center_num .cube .cube_front,
 .row_center_num .cube .cube_left,
-.row_center_num .cube .cube_right {
+.row_center_num .cube .cube_right,
+.row_center_num .cube .cube_back {
   background-image: url('cube.png');
   width: 100px;
   height: 60px;
@@ -421,7 +459,11 @@ p {
   top: 15px;
 }
 .row_right_num,
-.row_left_num {
+.row_left_num,
+.row_left_num_R,
+.row_left_num_L,
+.row_right_num_R,
+.row_right_num_L {
   color: white;
   opacity: 0.5;
   font-size: 30px;
@@ -458,4 +500,146 @@ p {
   right: 13%;
   top: 35px;
   padding: 10px 20px;
+}
+@-webkit-keyframes fadetoleft {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60px);
+    visibility: visible;
+  }
+}
+@-webkit-keyframes fadefromright {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateX(-60px);
+    -webkit-transform: translateX(-60px);
+    visibility: visible;
+  }
+}
+@-webkit-keyframes fadefromleft {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  100% {
+    opacty: 0.5;
+    transform: translateX(60px);
+    -webkit-transform: translateX(60px);
+    visibility: visible;
+  }
+}
+@-webkit-keyframes fadetoright {
+  0% {
+    opacity: 0.5;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60px);
+    -webkit-transform: translateX(60px);
+    visibility: visible;
+  }
+}
+.fadeToLeft {
+  animation: fadetoleft 0.5s;
+  -webkit-animation: fadetoleft 0.5s;
+  position: relative;
+}
+.fadeFromRight {
+  animation: fadefromright 0.5s;
+  -webkit-animation: fadefromright 0.5s;
+  position: relative;
+}
+.fadeToRight {
+  animation: fadetoright 0.5s;
+  -webkit-animation: fadetoright 0.5s;
+  position: relative;
+}
+.fadeFromLeft {
+  animation: fadefromleft 0.5s;
+  -webkit-animation: fadefromleft 0.5s;
+  position: relative;
+}
+.row_left_num_R,
+.row_left_num_L,
+.row_right_num_R,
+.row_right_num_L {
+  position: relative;
+  overflow: visible;
+  width: 0;
+  height: 0;
+  top: 14.5px;
+}
+.row_left_num_R,
+.row_right_num_R {
+  left: 26px;
+}
+.row_right_num_L {
+  left: -40px;
+}
+.row_left_num_L {
+  left: -22px;
+}
+.INVIS {
+  visibility: hidden;
+}
+._L,
+._R {
+  width: 0;
+  height: 0;
+  overflow: visible;
+  position: relative;
+  float: left;
+}
+.left_score ._L {
+  left: 50px;
+}
+.left_score ._R {
+  left: 170px;
+}
+.right_score ._L {
+  right: 60px;
+}
+.right_score ._R {
+  left: 3px;
+}
+.opposite_score ._L {
+  left: -38px;
+}
+.opposite_score ._R {
+  left: 82px;
+  bottom: 120px;
+}
+.center_score ._L {
+  right: 136px;
+}
+.center_score ._R {
+  left: 214px;
+  bottom: 72px;
+}
+#about_modal h4,
+#howtoplay_modal h4 {
+  font-size: 30px;
+  padding: 5px 15px;
+}
+#about_modal .modal-body,
+#howtoplay_modal .modal-body {
+  padding: 20px 30px;
+  text-indent: 25px;
+}
+#about_modal .modal-body p,
+#howtoplay_modal .modal-body p {
+  text-align: justify;
 }
