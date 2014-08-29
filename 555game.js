@@ -366,7 +366,7 @@ var showConfig = function (config, callback) {
 			callback();
 		return;
 	}
-	setTimeout(function () {showConfig(sol, callback); }, wait * 1.2);
+	setTimeout(function () {showConfig(sol, callback); }, wait * 1.3);
 	// showConfig(sol);
 }
 rotateRowLeft = _.throttle(_rotateRowLeft, wait * 1.3);
@@ -395,7 +395,7 @@ var startTimer = function () {
 	interval = window.setInterval(function () { 
 		displayTime();
 		checkForDone();
-	}, 13);
+	}, 11);
 }
 var checkForDone = function () {
 	var done = isPuzzleDone();
