@@ -52,7 +52,7 @@ p {
   float: left;
   font-size: 20px;
   position: relative;
-  bottom: 45px;
+  bottom: 0px;
 }
 .right_title_bit {
   width: 300px;
@@ -111,8 +111,9 @@ p {
 }
 .opposite_score {
   margin: 0 auto;
-  padding-top: 23px;
+  padding-top: 40px;
   width: 100px;
+  margin-bottom: -38px;
 }
 .opposite_score p {
   color: white;
@@ -135,7 +136,7 @@ p {
   top: 430px;
 }
 .right_score p {
-  bottom: 34px;
+  bottom: 0px;
   float: left;
 }
 .left_score {
@@ -143,7 +144,7 @@ p {
   top: 430px;
 }
 .left_score p {
-  bottom: 34px;
+  bottom: 0px;
   float: right;
 }
 .rotate_right_icon,
