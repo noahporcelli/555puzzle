@@ -369,8 +369,8 @@ var showConfig = function (config, callback) {
 	setTimeout(function () {showConfig(sol, callback); }, wait * 1.3);
 	// showConfig(sol);
 }
-rotateRowLeft = _.throttle(_rotateRowLeft, wait * 1.3);
-rotateRowRight = _.throttle(_rotateRowRight, wait * 1.3);
+rotateRowLeft = _.throttle(_rotateRowLeft, wait * 1.8);
+rotateRowRight = _.throttle(_rotateRowRight, wait * 1.8);
 turnLeft = _.throttle(_turnLeft, wait * 1.8);
 turnRight = _.throttle(_turnRight, wait * 1.8);
 var isPuzzleDone = function () {
